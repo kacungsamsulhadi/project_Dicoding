@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_dicoding/widgets/my_bottom_nav_bar.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
             .textTheme
             .apply(displayColor: Colors.blue.shade100),
       ),
-      //home: (),
+      home: MyBottomNavBar(),
     );
   }
 }
