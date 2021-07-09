@@ -1,26 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:project_dicoding/widgets/my_bottom_nav_bar.dart';
+import 'package:flutter/services.dart';
 
-void main() async {
+import 'pages/about_page.dart';
+
+Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  static final String title = 'User Profile';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Meditation App',
       theme: ThemeData(
-        fontFamily: "Cairo",
-        scaffoldBackgroundColor: Colors.blue.shade300,
-        textTheme: Theme.of(context)
-            .textTheme
-            .apply(displayColor: Colors.blue.shade100),
+        primaryColor: Colors.blue.shade300,
+        dividerColor: Colors.black,
       ),
-      home: MyBottomNavBar(),
+      title: title,
+      home: ProfilePage(),
     );
   }
 }
